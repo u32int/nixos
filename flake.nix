@@ -13,9 +13,14 @@
    #   url = "github:u32int/dwm-status";
    #   flake = false;
    # }
+
+    dotfiles = {
+      url = "github:u32int/dotfiles";
+      flake = false;
+    };
   };
 
-  outputs = inputs @ { self, nixpkgs, home-manager, ... }:
+  outputs = inputs @ { self, nixpkgs, home-manager, dotfiles, ... }:
     let
       user = "vsh";
     in
@@ -23,7 +28,7 @@
       nixosConfigurations = (
         import ./hosts {
           inherit (nixpkgs) lib;
-          inherit inputs nixpkgs home-manager user;
+          inherit inputs nixpkgs home-manager user dotfiles;
         }
       );
     };

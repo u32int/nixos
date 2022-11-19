@@ -4,13 +4,13 @@
   nixpkgs = {
     overlays = [
       (final: prev: {
-        dwm = prev.dwm.overrideAttrs (old: { src = ./dwm ;});
+        dwm = prev.dwm.overrideAttrs (old: { src = "${inputs.dotfiles}/.suckless/dwm" ;});
       })
       (final: prev: {
-        st = prev.st.overrideAttrs (old: { src = ./st ;});
+        st = prev.st.overrideAttrs (old: { src = "${inputs.dotfiles}/.suckless/st" ;});
       })
       (final: prev: {
-        dmenu = prev.dmenu.overrideAttrs (old: { src = ./dmenu ;});
+        dmenu = prev.dmenu.overrideAttrs (old: { src = "${inputs.dotfiles}/.suckless/dmenu" ;});
       })
     ];
   };

@@ -1,8 +1,5 @@
 { inputs, lib, config, pkgs, user, ... }:
 
-let
-  configpath = ../../config;
-in
 {
   imports = [
   ];
@@ -45,15 +42,15 @@ in
       neofetch
     ];
 
-    file = {
-      ".Xdefaults".source = ../../config/Xdefaults;
-      ".zshrc".source = ../../config/zshrc;
+  file = {
+      ".Xdefaults".source = "${inputs.dotfiles}/.Xdefaults";
+      ".zshrc".source = "${inputs.dotfiles}/.zshrc";
     };
   };
 
   xdg.configFile = {
-    "ranger/rc.conf".source = ../../config/ranger/rc.conf;
-    "ranger/rifle.conf".source = ../../config/ranger/rifle.conf;
+    "ranger/rc.conf".source = "${inputs.dotfiles}/ranger/rc.conf";
+    "ranger/rifle.conf".source = "${inputs.dotfiles}/ranger/rifle.conf";
   };
 
   programs = {

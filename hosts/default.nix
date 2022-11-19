@@ -20,7 +20,7 @@ in
         home-manager = {
           # useGlobalPkgs = true;
           useUserPackages = true;
-          extraSpecialArgs = { inherit user; };
+          extraSpecialArgs = { inherit inputs user; };
           users.${user} = {
             imports = [
                   ./x230/home.nix
